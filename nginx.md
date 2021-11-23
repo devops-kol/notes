@@ -30,7 +30,7 @@ uuid-dev
 
 <!-- Сборка NGINX с префиксами -->
 ```
-./configure –-sbin-path=/usr/bin/nginx \
+./configure --sbin-path=/usr/bin/nginx \
 --conf-path=/etc/nginx/nginx.conf \
 --error-log-path=/var/log/nginx/error.log \
 --http-log-path=/var/log/nginx/access.log \
@@ -38,5 +38,5 @@ uuid-dev
 --with-pcre \
 --with-http_ssl_module \
 && make \
-&& sudo make install
+&& make install
 ```
