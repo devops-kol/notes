@@ -30,8 +30,10 @@ uuid-dev
 
 <!-- Сборка NGINX с префиксами -->
 ```
-./configure --sbin-path=/usr/bin/nginx \
+./configure \
+--sbin-path=/usr/bin/nginx \
 --conf-path=/etc/nginx/nginx.conf \
+--pid-path=/var/run/nginx.pid \
 --error-log-path=/var/log/nginx/error.log \
 --http-log-path=/var/log/nginx/access.log \
 --with-debug \
@@ -40,3 +42,29 @@ uuid-dev
 && make \
 && make install
 ```
+
+3. Установка NGINX в качестве сервиса
+
+<!-- Создаем файл сервиса NGINX -->
+`vim /lib/systemd/system/nginx.service`
+
+<!-- Вставляем содержимое -->
+=======================================
+[Unit]
+Description=The NGINX HTTP and reverse proxy server
+After=syslog.target network-online.target remote-fs.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/usr/bin/nginx -t
+ExecStart=/usr/bin/nginx
+ExecReload=/usr/bin/nginx -s reload
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+====================================
+
