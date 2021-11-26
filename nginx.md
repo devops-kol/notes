@@ -1,21 +1,21 @@
-#########################
-********* NGINX *********
-#########################
 
-1. Установка NGINX с помощью пакетного менеджера
+## ********* NGINX *********
+
+
+**1. Установка NGINX с помощью пакетного менеджера**
 ```
 sudo apt install nginx
 ```
 
-2. Установка NGINX из исходного кода
+**2. Установка NGINX из исходного кода**
 
 > Устанавливаем инструменты компиляции
 `sudo apt install build-essential`  
 
-<!-- Скачиваем исходный код nginx -->                          
+> Скачиваем исходный код nginx
 `wget https://nginx.org/download/nginx-1.21.0.tar.gz`
 
-<!-- Устанавливаем дополнительные пакеты для запуска модулей nginx -->
+> Устанавливаем дополнительные пакеты для запуска модулей nginx
 ```
 sudo apt install -y libpcre3 \
 libpcre3-dev \
@@ -28,7 +28,7 @@ libxml2-dev \
 uuid-dev
 ```
 
-<!-- Сборка NGINX с префиксами -->
+> Сборка NGINX с префиксами
 ```
 ./configure \
 --sbin-path=/usr/bin/nginx \
@@ -43,13 +43,13 @@ uuid-dev
 && make install
 ```
 
-3. Установка NGINX в качестве сервиса
+**3. Установка NGINX в качестве сервиса**
 
-<!-- Создаем файл сервиса NGINX -->
+> Создаем файл сервиса NGINX
 `vim /lib/systemd/system/nginx.service`
 
-<!-- Вставляем содержимое -->
-=======================================
+> Вставляем содержимое
+```
 [Unit]
 Description=The NGINX HTTP and reverse proxy server
 After=syslog.target network-online.target remote-fs.target nss-lookup.target
@@ -66,5 +66,4 @@ PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
-====================================
-
+```
