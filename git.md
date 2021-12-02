@@ -1,8 +1,9 @@
 ## Git ##
 
 **1. Настройки git**
-`git config --global user.name ""`
-`git config --global user.email`
+
+- `git config --global user.name ""`
+- `git config --global user.email`
 
 **Инициализация репозитория**
 | git init
