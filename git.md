@@ -1,14 +1,14 @@
 ## Git ##
 
 **Настройки git**
-git config --global user.name ""
-git config --global user.email
+| git config --global user.name ""
+| git config --global user.email
 
 **Инициализация репозитория**
-git init
+| git init
 
 **Добавить файлы в список отслеживаемых**
-git add file_name
+| git add file_name
 
 **Сделать коммит**
 git commit -m "Init commit"
