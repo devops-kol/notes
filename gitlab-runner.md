@@ -2,9 +2,9 @@
 
 **1. Создание docker runner**
 ```
-sudo gitlab-runner register \
+sudo gitlab-runner register -n\
   --url "https://gitlab.com/" \
-  --registration-token "PROJECT_REGISTRATION_TOKEN" \
+  --registration-token "...." \
   --description "Docker runner" \
   --executor "docker" \
   --docker-image "docker:latest" \
