@@ -24,7 +24,7 @@ sudo gitlab-runner register -n\
   --tag-list docker-runner-priv
 ```
 
-**3. Создание shell runner с привилегиями**
+**3. Создание shell runner**
 ```
 sudo gitlab-runner register -n\
   --url https://gitlab.com/ \
