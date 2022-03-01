@@ -25,3 +25,4 @@
 - container runtime
 - kube-proxy
 
+## ReplicaSet 
